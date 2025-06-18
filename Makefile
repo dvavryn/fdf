@@ -5,7 +5,8 @@ SRCS	:=	main.c \
 			utils.c \
 			map.c \
 			error_exit.c \
-			init.c
+			init.c \
+			free.c
 OBJS	:= $(SRCS:.c=.o)
 
 all: $(NAME)

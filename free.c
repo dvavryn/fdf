@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dvavryn <dvavryn@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/18 11:38:29 by dvavryn           #+#    #+#             */
-/*   Updated: 2025/06/18 11:49:07 by dvavryn          ###   ########.fr       */
+/*   Created: 2025/06/18 11:48:33 by dvavryn           #+#    #+#             */
+/*   Updated: 2025/06/18 11:48:51 by dvavryn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "fdf.h"
 
-# include <mlx.h>
-# include "../libft/libft.h"
-# include <fcntl.h>
-
-typedef struct s_data
+void	free_data(t_data **env)
 {
-	char	**map;
-	void	*mlx;
-	void	*win;
-}	t_data;
-
-// ------------------------
-void	get_map(t_data **env, char *path);
-void	error_exit(char *msg, int status);
-void	init_data(t_data **env, char *path);
-void	free_data(t_data **env);
-
-#endif
+	if ((*env)->map)
+		free_split((*env)->map);
+	if ((*env)->win)
+		mlx_destroy_window((*env)->mlx, (*env)->win);
+	if ((*env)->mlx)
+	{
+		mlx_destroy_display((*env)->mlx);
+		free((*env)->mlx);
+	}
+	if (*env)
+		free(*env);
+	exit(0);
+}
