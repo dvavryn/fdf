@@ -6,7 +6,8 @@ SRCS	:=	main.c \
 			map.c \
 			error_exit.c \
 			init.c \
-			free.c
+			free.c \
+			my_mlx.c
 OBJS	:= $(SRCS:.c=.o)
 
 all: $(NAME)
