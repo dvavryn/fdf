@@ -58,16 +58,36 @@ int x_(int x, int y, int z)
 {
 	double	out;
 
-	out = (WIDTH / 2) - ((x - z) * sin(30));
+	// out = (WIDTH / 2) - ((x - y) * sin(45));
+	out = (WIDTH / 2) + ((x - y) * sin(45));	
+	
+	// out = (WIDTH / 2) - ((x - z) * sin(45));
+	// out = (WIDTH / 2) + ((x - z) * sin(45));
+
+
+	// out = (WIDTH / 2) - ((x - y) * sin(30));
+	// out = (WIDTH / 2) + ((x - y) * sin(30));	
+	
+	// out = (WIDTH / 2) - ((x - z) * sin(30));
+	// out = (WIDTH / 2) + ((x - z) * sin(30));
 	return ((int)out);
 }
 
 int y_(int x, int y, int z)
 {
 	double	out;
-	// out = (HEI - 40) - y - ((x + z) * cos(30));
 
-	out = (HEIGHT / 2) - y - ((x + z) * cos(30));
+	// out = (HEIGHT / 2) - z - ((x + y) * cos(45));
+	out = (HEIGHT / 2) - z + ((x + y) * cos(45));
+
+	// out = (HEIGHT / 2) - y - ((x + z) * cos(45));
+	// out = (HEIGHT / 2) - y + ((x + z) * cos(45));
+
+	// out = (HEIGHT / 2) - z - ((x + y) * cos(30));
+	// out = (HEIGHT / 2) - z + ((x + y) * cos(30));
+
+	// out = (HEIGHT / 2) - y - ((x + z) * cos(30));
+	// out = (HEIGHT / 2) - y + ((x + z) * cos(30));
 	return ((int)out);
 }
 
@@ -133,21 +153,35 @@ void	draw_lin1(t_img *img,int x1, int y1, int z1, int x2, int y2, int z2)
 
 void	draw(t_img *img)
 {
-	char *map[] = {
-		"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
-		"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
-		"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
-		"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
-		"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
-		"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
-		"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
-		"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
-		"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
-		"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
-		"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
-		NULL
-	};
+	// char *map[] = {
+	// 	"3 2 1 0 0 0 0 0 0",
+	// 	"2 1 0 0 0 0 0 0 0",
+	// 	"1 0 0 0 0 0 0 0 0",
+	// 	"0 0 0 0 0 0 0 0 0",
+	// 	"0 0 0 0 0 0 0 0 0",
+	// 	"0 0 0 0 0 0 0 0 0",
+	// 	"0 0 0 0 0 0 0 0 0",
+	// 	"0 0 0 0 0 0 0 0 0",
+	// 	"0 0 0 0 0 0 0 0 0",
+	// 	"0 0 0 0 0 0 0 0 0",
+	// 	"0 0 0 0 0 0 0 0 0",
+	// 	NULL
+	// };
 
+	char *map[] = {
+		"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
+"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
+"0 0 10 10 0 0 10 10 0 0 0 10 10 10 10 10 0 0 0",
+"0 0 10 10 0 0 10 10 0 0 0 0 0 0 0 10 10 0 0",
+"0 0 10 10 0 0 10 10 0 0 0 0 0 0 0 10 10 0 0",
+"0 0 10 10 10 10 10 10 0 0 0 0 10 10 10 10 0 0 0",
+"0 0 0 10 10 10 10 10 0 0 0 10 10 0 0 0 0 0 0",
+"0 0 0 0 0 0 10 10 0 0 0 10 10 0 0 0 0 0 0",
+"0 0 0 0 0 0 10 10 0 0 0 10 10 10 10 10 10 0 0",
+"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
+"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
+NULL
+	};
 	size_t	i;
 	size_t	j;
 
@@ -157,9 +191,8 @@ void	draw(t_img *img)
 		j = 0;
 		while (map[i][j])
 		{
-			my_pixel_put(img, x_(i*20,j%2*20,ft_atoi(&map[i][j])*20), y_(i*20,j%2*20,ft_atoi(&map[i][j])*20), 0xFFFFFFFF);
-			// draw_line(img, (i)*20,(j-1)*20,ft_atoi(&map[i][j-1])*20, i,j,ft_atoi(&map[i][j]));
-			j+=2;
+			my_pixel_put(img, x_(i*20,j/2*20,ft_atoi(&map[i][j])*20), y_(i*20,j/2*20,ft_atoi(&map[i][j])*20), 0xFFFFFFFF);			// draw_line(img, (i)*20,(j-1)*20,ft_atoi(&map[i][j-1])*20, i,j,ft_atoi(&map[i][j]));
+			j++;
 		}
 		i++;
 	}
