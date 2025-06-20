@@ -1,13 +1,7 @@
 NAME	:= fdf
 CC		:= cc
 # CFLAGS	:= -Wall -Wextra -Werror
-SRCS	:=	main.c \
-			utils.c \
-			map.c \
-			error_exit.c \
-			init.c \
-			free.c \
-			my_mlx.c
+SRCS	:=	main.c 
 OBJS	:= $(SRCS:.c=.o)
 
 all: $(NAME)

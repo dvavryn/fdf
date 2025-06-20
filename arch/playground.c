@@ -90,8 +90,8 @@ int y_(int x, int y, int z)
 	return ((int)out);
 }
 
-void	render(t_img *img)
-{
+// void	render(t_img *img)
+// {
 
 	// int	pt_1[] = { 0,  0,  0};
 	// int	pt_2[] = {20,  0,  0};
@@ -102,56 +102,56 @@ void	render(t_img *img)
 	// int	pt_7[] = { 0, 20, 20};
 	// int	pt_8[] = {20, 20, 20};
 
-	int x = 0;
-	int y = 0;
-	int z = 0;
+	// int x = 0;
+	// int y = 0;
+	// int z = 0;
 
-	while (x < 80)
-	{
-		my_pixel_put(img, x_(x, y, z), y_(x, y, z), RED);
-		x++;
-	}
-	while (y < 80)
-	{
-		my_pixel_put(img, x_(x, y, z), y_(x, y, z), RED);
-		y++;
-	}
-	while (x > 0)
-	{
-		my_pixel_put(img, x_(x, y, z), y_(x, y, z), RED);
-		x--;
-	}
-	while (y > 0)
-	{
-		my_pixel_put(img, x_(x, y, z), y_(x, y, z), RED);
-		y--;
-	}
-	while (z < 80)
-	{
-		my_pixel_put(img, x_(x, y, z), y_(x, y, z), RED);
-		z++;
-	}
-	while (y < 80)
-	{
-		my_pixel_put(img, x_(x, y, z), y_(x, y, z), RED);
-		y++;
-	}
-	while (z > 0)
-	{
-		my_pixel_put(img, x_(x, y, z), y_(x, y, z), RED);
-		z--;
-	}
-	z = 80;
-	while (x < 80)
-	{
-		my_pixel_put(img, x_(x, y, z), y_(x, y, z), RED);
-		x++;
-	}
-	while (z > 0)
-	{
-		my_pixel_put(img, x_(x, y, z), y_(x, y, z), RED);
-		z--;
-	}
+	// while (x < 80)
+	// {
+	// 	my_pixel_put(img, x_(x, y, z), y_(x, y, z), RED);
+	// 	x++;
+	// }
+	// while (y < 80)
+	// {
+	// 	my_pixel_put(img, x_(x, y, z), y_(x, y, z), RED);
+	// 	y++;
+	// }
+	// while (x > 0)
+	// {
+	// 	my_pixel_put(img, x_(x, y, z), y_(x, y, z), RED);
+	// 	x--;
+	// }
+	// while (y > 0)
+	// {
+	// 	my_pixel_put(img, x_(x, y, z), y_(x, y, z), RED);
+	// 	y--;
+	// }
+	// while (z < 80)
+	// {
+	// 	my_pixel_put(img, x_(x, y, z), y_(x, y, z), RED);
+	// 	z++;
+	// }
+	// while (y < 80)
+	// {
+	// 	my_pixel_put(img, x_(x, y, z), y_(x, y, z), RED);
+	// 	y++;
+	// }
+	// while (z > 0)
+	// {
+	// 	my_pixel_put(img, x_(x, y, z), y_(x, y, z), RED);
+	// 	z--;
+	// }
+	// z = 80;
+	// while (x < 80)
+	// {
+	// 	my_pixel_put(img, x_(x, y, z), y_(x, y, z), RED);
+	// 	x++;
+	// }
+	// while (z > 0)
+	// {
+	// 	my_pixel_put(img, x_(x, y, z), y_(x, y, z), RED);
+	// 	z--;
+	// }
 	// my_pixel_put(img, x_(pt_2), y_(pt_2), RED);
 	// my_pixel_put(img, x_(pt_3), y_(pt_3), RED);
 	// my_pixel_put(img, x_(pt_4), y_(pt_4), RED);
@@ -159,7 +159,7 @@ void	render(t_img *img)
 	// my_pixel_put(img, x_(pt_6), y_(pt_6), RED);
 	// my_pixel_put(img, x_(pt_7), y_(pt_7), RED);
 	// my_pixel_put(img, x_(pt_8), y_(pt_8), RED);
-}
+// }
 
 // void	render(t_img *img)
 // {
@@ -183,27 +183,31 @@ void	render(t_img *img)
 // 	my_pixel_put(img, 30, 20, RED);
 // }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// void	render(t_img *img)
-// {
+void	render(t_img *img)
+{
+	char *map[]= {
+"00000000000000000000",
+"00000000000000000000",
+"00000000000000000000",
+"00055000000055500000",
+"00055000000055550000",
+"00055000000550555000",
+"00055000000550055000",
+"00055000000550055000",
+"00055000000000055000",
+"00055555000000555000",
+"00055555000005550000",
+"00055555000055500000",
+"00000550000555000000",
+"00000550000550000000",
+"00000550000555555000",
+"00000550000555555000",
+"00000550000555555000",
+"00000000000000000000",
+"00000000000000000000",
+"00000000000000000000",
+NULL
+};
 // char *map[] = {
 // "00112233445566778899",
 // "00001122334455667788",
@@ -216,109 +220,99 @@ void	render(t_img *img)
 // "00000000000000000011",
 // NULL
 // };
-// 	// char *map[] = {
-// // "000000000000000000000000000",
-// // "000000000000000000000000000",
-// // "000000000000000000000000000",
-// // "000000000000000000000000000",
-// // "000000000000000000000000000",
-// // "000001111111111111111100000",
-// // "000001222222222222222100000",
-// // "000001233333333333332100000",
-// // "000001234444444444432100000",
-// // "000001234444444444432100000",
-// // "000001234444444444432100000",
-// // "000001234444444444432100000",
-// // "000001234444444444432100000",
-// // "000001234555555555432100000",
-// // "000001234566666665432100000",
-// // "000001234567777765432100000",
-// // "000001234567888765432100000",
-// // "000001234567888765432100000",
-// // "000001234567888765432100000",
-// // "000001234567888765432100000",
-// // "000001234567898765432100000",
-// // "000001234567888765432100000",
-// // "000001234567777765432100000",
-// // "000001234566666665432100000",
-// // "000001234555555555432100000",
-// // "000001234444444444432100000",
-// // "000001233333333333332100000",
-// // "000001222222222222222100000",
-// // "000001111111111111111100000",
-// // "000000000000000000000000000",
-// // "000000000000000000000000000",
-// // "000000000000000000000000000",
-// // "000000000000000000000000000",
-// // "000000000000000000000000000",
-// 	// NULL};
-// 	int row = 0;
-// 	while (map[row])
-// 		row++;
+// 	char *map[] = {
+// "000000000000000000000000000",
+// "000001111111111111111100000",
+// "000001222222222222222100000",
+// "000001233333333333332100000",
+// "000001234444444444432100000",
+// "000001234444444444432100000",
+// "000001234444444444432100000",
+// "000001234444444444432100000",
+// "000001234444444444432100000",
+// "000001234555555555432100000",
+// "000001234566666665432100000",
+// "000001234567777765432100000",
+// "000001234567888765432100000",
+// "000001234567888765432100000",
+// "000001234567888765432100000",
+// "000001234567888765432100000",
+// "000001234567898765432100000",
+// "000001234567888765432100000",
+// "000001234567777765432100000",
+// "000001234566666665432100000",
+// "000001234555555555432100000",
+// "000001234444444444432100000",
+// "000001233333333333332100000",
+// "000001222222222222222100000",
+// "000001111111111111111100000",
+// "000000000000000000000000000",
+// 	NULL};
+	int row = 0;
+	while (map[row])
+		row++;
 
-// 	int fac = 30;
-// 	int width = WID / (int)strlen(map[0]);
-// 	int height = HEI /row;
-// 	if (width <= height)
-// 		fac = width;
-// 	else
-// 		fac = height;
+	int fac = 30;
+	int width = WID / (int)strlen(map[0]);
+	int height = HEI /row;
+	if (width <= height)
+		fac = width;
+	else
+		fac = height;
 
-// 	size_t	i = 0;
-// 	size_t	j = 0;
-// 		int colllx;
-// 	while (map[i])
-// 	{
-// 		j = 0;
-// 		while (map[i][j])
-// 		{
-// 			int o = 0;
-// 			while (o < 10)
-// 			{
-// 			if (o == 1)
-// 				colllx = RED;
-// 			else
-// 				colllx = 0xFFFFFFFF;
-// 			if (map[i][j] == '0' + o)
-// 				{
-// 					if (map[i][j+1] == '0' + o)
-// 					{
-// 						int l = j * fac;
-// 						while (l < j * fac + fac)
-// 						{
-// 							my_pixel_put(img, l, i * fac, colllx);
-// 							l++;
-// 						}
-// 					}
-// 					if (map[i + 1] && map[i+1][j] == '0' + o)
-// 						{
-// 							int k = i * fac;
-// 							while (k < i * fac + fac)
-// 							{
-// 								my_pixel_put(img, j * fac, k, colllx);
-// 								k++;
-// 							}
-// 					}
+	size_t	i = 0;
+	size_t	j = 0;
+		int colllx;
+			colllx = 0xFFFFFFFF;
 
-// 				}
-// 				o++;
-// 			}
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			int o = 0;
+			while (o < 10)
+			{
+			if (map[i][j] == '0' + o)
+				{
+					if (map[i][j+1] == '0' + o)
+					{
+						int l = j * fac;
+						while (l < j * fac + fac)
+						{
+							my_pixel_put(img, l, i * fac, colllx);
+							l++;
+						}
+					}
+					if (map[i + 1] && map[i+1][j] == '0' + o)
+						{
+							int k = i * fac;
+							while (k < i * fac + fac)
+							{
+								my_pixel_put(img, j * fac, k, colllx);
+								k++;
+							}
+					}
+
+				}
+				o++;
+			}
 
 		
-// 			// my_pixel_put(img, j * fac    , i * fac,     RED);
-// 			// my_pixel_put(img, j * fac + 1, i * fac,     RED);
-// 			// my_pixel_put(img, j * fac + 2, i * fac,     RED);
-// 			// my_pixel_put(img, j * fac    , i * fac + 1, RED);
-// 			// my_pixel_put(img, j * fac + 1, i * fac + 1, RED);
-// 			// my_pixel_put(img, j * fac + 2, i * fac + 1, RED);
-// 			// my_pixel_put(img, j * fac    , i * fac + 2, RED);
-// 			// my_pixel_put(img, j * fac + 1, i * fac + 2, RED);
-// 			// my_pixel_put(img, j * fac + 2, i * fac + 2, RED);
-// 			j++;
-// 		}
-// 		i++;
-// 	}
-	
+			my_pixel_put(img, j * fac    , i * fac,     RED);
+			my_pixel_put(img, j * fac + 1, i * fac,     RED);
+			my_pixel_put(img, j * fac + 2, i * fac,     RED);
+			my_pixel_put(img, j * fac    , i * fac + 1, RED);
+			my_pixel_put(img, j * fac + 1, i * fac + 1, RED);
+			my_pixel_put(img, j * fac + 2, i * fac + 1, RED);
+			my_pixel_put(img, j * fac    , i * fac + 2, RED);
+			my_pixel_put(img, j * fac + 1, i * fac + 2, RED);
+			my_pixel_put(img, j * fac + 2, i * fac + 2, RED);
+			j++;
+		}
+		i++;
+	}
+}
 	
 	
 	
