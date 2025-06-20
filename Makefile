@@ -7,7 +7,7 @@ OBJS	:= $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) -L../libft/ -lft -L/usr/lib -lmlx -lXext -lX11 -lm -lz -Imlx -o $(NAME) -g
+	$(CC) $(OBJS) -L../libft/ -lft -L../mlx/ -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz -o $(NAME) -g
 
 %.o: %.c
 	$(CC) -I/usr/include -Imlx -c $< -o $@ -g

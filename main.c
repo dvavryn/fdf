@@ -1,4 +1,4 @@
-#include <mlx.h>
+#include "../mlx/mlx.h"
 #include "../libft/libft.h"
 #include <stdlib.h>
 #include <math.h>
@@ -19,8 +19,8 @@ typedef struct s_data
 	void	*img;
 }	t_data;
 
-#define WIDTH 800
-#define HEIGHT 800
+#define WIDTH 1920
+#define HEIGHT 1024
 
 int close_esc(int  key, t_data **env);
 int close_x(t_data **env);
@@ -42,6 +42,8 @@ int main(int argc, char **argv)
 	init_img(&img, &env);
 
 	draw(&img);
+
+
 
 
 	mlx_put_image_to_window(env->mlx, env->win, img.img, 0, 0);
@@ -131,42 +133,46 @@ void	draw_lin1(t_img *img,int x1, int y1, int z1, int x2, int y2, int z2)
 
 void	draw(t_img *img)
 {
+	char *map[] = {
+		"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
+		"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
+		"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
+		"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
+		"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
+		"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
+		"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
+		"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
+		"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
+		"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
+		"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
+		NULL
+	};
 
-	// draw_line_x(img, 0,0,0, 0,0,0);
-	// draw_line(img, 0,0,0, 0,0,0);
-	// draw_line(img, 0,0,40, 40,0,40);
-	// draw_line(img, 40,0,40, 0,40,40);
-	// draw_line(img, 40,0,0, 40,0,40);
+	size_t	i;
+	size_t	j;
 
-	draw_line(img, 0,0,0, 40,0,0);
-	draw_line(img, 0,40,0, 40,40,0);
-	draw_line(img, 0,0,0, 0,40,0);
-	draw_line(img, 40,0,0, 40,40,0);
-	draw_line(img, 0,0,0, 0,0,40);
-	draw_line(img, 0,0,40, 0,40,40);
-	draw_line(img, 0,40,40, 40,40,40);
-	draw_line(img, 40,40,0, 40,40,40);
-	draw_line(img, 0,40,0, 0,40,40);
-	draw_line(img, 0,40,40, 40,40,40);
-
-
-
-
-	
-
-	// my_pixel_put(img, x_(x,y,z), y_(x,y,z), 0xFFFFFFFF);
-
-
-	// my_pixel_put(img, x_(0,0,0), y_(0,0,0), 0x00FF0000);
-	// my_pixel_put(img, x_(40,0,0), y_(40,0,0), 0x00FF0000);
-	// my_pixel_put(img, x_(0,40,0), y_(0,40,0), 0x00FF0000);
-	// my_pixel_put(img, x_(40,40,0), y_(40,40,0), 0x00FF0000);
-
-	// my_pixel_put(img, x_(0,0,40), y_(0,0,40), 0x00FF0000);
-	// my_pixel_put(img, x_(40,0,40), y_(40,0,40), 0x00FF0000);
-	// my_pixel_put(img, x_(0,40,40), y_(0,40,40), 0x00FF0000);
-	// my_pixel_put(img, x_(40,40,40), y_(40,40,40), 0x00FF0000);
-
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			my_pixel_put(img, x_(i*20,j%2*20,ft_atoi(&map[i][j])*20), y_(i*20,j%2*20,ft_atoi(&map[i][j])*20), 0xFFFFFFFF);
+			// draw_line(img, (i)*20,(j-1)*20,ft_atoi(&map[i][j-1])*20, i,j,ft_atoi(&map[i][j]));
+			j+=2;
+		}
+		i++;
+	}
+	// draw_line(img, 0,0,0, 500,0,0);
+	// draw_line(img, 0,500,0, 500,500,0);
+	// draw_line(img, 0,0,0, 0,500,0);
+	// draw_line(img, 500,0,0, 500,500,0);
+	// draw_line(img, 0,0,0, 0,0,500);
+	// draw_line(img, 0,0,500, 0,500,500);
+	// draw_line(img, 0,500,500, 500,500,500);
+	// draw_line(img, 500,500,0, 500,500,500);
+	// draw_line(img, 0,500,0, 0,500,500);
+	// draw_line(img, 0,500,500, 500,500,500);
 }
 
 void	init_img(t_img *img, t_data **env)
@@ -190,7 +196,7 @@ void	init_data(t_data **env)
 	(*env)->mlx = mlx_init();
 	if (!(*env)->mlx)
 		free_data(env, 2);
-	(*env)->win = mlx_new_window((*env)->mlx, 800, 800, "stefan");
+	(*env)->win = mlx_new_window((*env)->mlx, WIDTH, HEIGHT, "stefan");
 	if (!(*env)->win)
 		free_data(env, 3);
 }
