@@ -1,0 +1,48 @@
+#include <stddef.h>
+
+void	get_arr_size(char **map, int *i, int *j)
+{
+	size_t a;
+	size_t b;
+	size_t c;
+	size_t	count_one;
+	size_t	count_two;
+
+	a = 0;
+	while (map[a])
+		a++;
+	a = 0;
+	*i = a;
+	b = 0;
+	while (map[b])
+	{
+		c = 0;
+		if (b == 0)
+		{
+			count_one = 0;
+			while (map[b][c])
+			{
+				if ((map[b][c] == '+' || map[b][c] == '-' || (map[b][c] >= '0' || map[b][c] <= '9')) && (map[b][c + 1] == ' ' || !map[b][c]))
+					count_one++;
+				c++;
+			}
+		}
+		else 
+		{
+			count_two = 0;
+			while (map[b][c])
+			{
+				if ((map[b][c] == '+' || map[b][c] == '-' || (map[b][c] >= '0' || map[b][c] <= '9')) && (map[b][c + 1] == ' ' || !map[b][c]))
+					count_two++;
+				c++;
+			}
+			if (count_one != count_two)
+			{
+				*i = 0;
+				*j = 0;
+				return ;
+			}
+		}
+	}
+	*j = count_one;
+}
